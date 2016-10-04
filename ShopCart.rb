@@ -8,7 +8,22 @@ class ShoppingCart
   def add_item(item)
   	@items.push(item)
   end
+
+  def checkout
+  	final_price = 0
+  	@items.each do |pr|
+  		final_price += pr.price
+  	end
+  	puts " Give me #{final_price}€! Quick"
+  end
+
+
+  
 end
+
+
+
+
 
 
 class Item 
