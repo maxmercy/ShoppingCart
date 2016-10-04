@@ -5,11 +5,9 @@ class ShoppingCart
     @items = []
   end
 
-  def add_list(item)
+  def add_item(item)
   	@items.push(item)
   end
-
-
 end
 
 
@@ -49,14 +47,14 @@ class Fruit < Item
 end
 
 
-banana = Fruit.new("Banana",10)
-orange = Fruit.new("Orange",10)
-rice = Fruit.new("Rice",1)
-vacuum = Houseware.new("Vacuum Cleaner",150)
-anchovies = Fruit.new("Anchovies",2)
-bpen = Houseware.new("Blue Pen",1)
 
+joshs_cart = ShoppingCart.new
+banana = Fruit.new("Banana", 10)
+vaccuum = Houseware.new("Vaccuum", 150)
+oj = Item.new("Orange Juice", 10)
+rice = Item.new("Rice", 1)
+anchovies = Item.new("Anchovies", 2)
 
-
-puts orange.price
-puts vacuum.price
+joshs_cart.add_item(oj)
+joshs_cart.add_item(rice)
+joshs_cart.checkout
