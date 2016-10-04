@@ -1,10 +1,14 @@
 require 'date'
 
-class ShoppingCart
-	attr_reader :item 
+class ShoppingCart 
   def initialize
     @items = []
   end
+
+  def add_list(item)
+  	@items.push(item)
+  end
+
 
 end
 
@@ -17,24 +21,22 @@ class Item
   end
 
   def price
-	  #Your beautiful code goes here
       @price 
   end
 end
 
-
+# 5% reduction for Housware worth more than 100
 class Houseware < Item
   def price
-      #Hmmm maybe this changes somehow..
-      if @price >= 100
-      	@price = @price * 0.95
+      if @price > 100
+      	@price = (@price * 0.95)
       else 
       	@price
       end 
   end
 end
 
-
+# 10% reduction the we on fruits
 class Fruit < Item
   def price
   	t = Date.today
@@ -47,10 +49,14 @@ class Fruit < Item
 end
 
 
-banana = Fruit.new("Banana", 10)
-orange = Fruit.new("Orange", 10)
-rice = Fruit.new("Rice", 1)
-vacuum = Item.new("Vacuum Cleaner", 150)
-anchovies = Fruit.new("Anchovies", 2)
-bpen = Item.new("Blue Pen", 1)
+banana = Fruit.new("Banana",10)
+orange = Fruit.new("Orange",10)
+rice = Fruit.new("Rice",1)
+vacuum = Houseware.new("Vacuum Cleaner",150)
+anchovies = Fruit.new("Anchovies",2)
+bpen = Houseware.new("Blue Pen",1)
 
+
+
+puts orange.price
+puts vacuum.price
