@@ -11,14 +11,22 @@ class ShoppingCart
 
   def checkout
   	final_price = 0
+  	i = 0
   	@items.each do |pr|
   		final_price += pr.price
+  		i +=1
   	end
-  	puts " Give me #{final_price}€! Quick"
+
+  	if i >= 5
+  		final_price = final_price * 0.90
+  	end
+
+
+  	puts " Give me #{final_price.round(2)}€! Quick"
   end
 
 
-  
+
 end
 
 
@@ -72,4 +80,8 @@ anchovies = Item.new("Anchovies", 2)
 
 joshs_cart.add_item(oj)
 joshs_cart.add_item(rice)
+joshs_cart.add_item(banana)
+joshs_cart.add_item(anchovies)
+joshs_cart.add_item(vaccuum)
+
 joshs_cart.checkout
