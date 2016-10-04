@@ -32,9 +32,12 @@ end
 
 class Fruit < Item
   def price
-  	time1 = Time.new
-  	if time1 
-      #Something special may go here too...
-      
+  	time1 = Time.now
+  	if time1.saturday ? || time1.sunday ?
+  		@price = @price * 0.90
+  	end
+
+    
+
   end
 end
