@@ -1,3 +1,5 @@
+require 'date'
+
 class ShoppingCart
 	attr_reader :item 
   def initialize
@@ -8,6 +10,7 @@ end
 
 
 class Item 
+	attr_reader :name, :price
   def initialize(name, price)
       @name = name
       @price = price
@@ -34,15 +37,12 @@ end
 
 class Fruit < Item
   def price
-  	t = Time.now
-  	if t.saturday ? || time1.sunday ?
-  		@price = @price * 0.90
+  	t = Date.today
+  	if t.wday == 0 || t.wday == 6
+  	  		@price = @price * 0.90
   	else
   		@price
   	end
-
-    
-
   end
 end
 
